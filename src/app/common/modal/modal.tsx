@@ -34,9 +34,9 @@ export const CommonModal = (props: CommonModalInterface) => {
   return (
     <Modal
       centered
-      closable
       width={width}
       open={isOpen}
+      closable={true}
       closeIcon={false}
       onCancel={onCancel}
       className='my-custom-modal'

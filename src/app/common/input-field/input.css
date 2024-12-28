@@ -20,7 +20,6 @@
 @media (max-width: 600px) {
     .input-field div{
         height: 40px;
-        border-radius: 8px;
     }
     .input-field label{
         font-size: 10px;

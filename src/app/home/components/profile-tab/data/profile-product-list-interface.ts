@@ -6,8 +6,8 @@ export interface ProductListFilterInterfaceValues {
 }
 
 export const ProductListInterfaceValues: ProductListFilterInterfaceValues = {
-  mainCategory: 1,
+  mainCategory: undefined,
   accountId: undefined,
-  productCategory: 1,
+  productCategory: undefined,
   productCondition: undefined,
 }

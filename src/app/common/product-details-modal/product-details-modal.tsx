@@ -22,6 +22,7 @@ import {
   FavoriteIcon,
   CommentsIcon,
   HeartIcon,
+  HighlightedCommentsIcon,
 } from '@/index'
 import {
   HeartReactStateDefaultValue,
@@ -168,9 +169,14 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
     heartReactState.isHearted,
   ])
 
+  // GET PRODUCT BY PRODUCT MASTER ID
   useEffect(() => {
     getProductMasterId(setIsLoading, productMasterId, setProductDetails)
   }, [productMasterId])
+
+  useEffect(() => {
+    openCommentSection(false)
+  }, [openDetailModal])
 
   return (
     <CommonModal
@@ -195,13 +201,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
             ))}
           </Carousel>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-          }}
-        >
+        <div className='product-detail-main-container'>
           <div className='product-detail-container'>
             <CommonTypography
               style={{ fontWeight: 'bolder', marginTop: '-5px' }}
@@ -250,16 +250,6 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
                 inputedValue={inputedValue}
                 setInputtedValue={setInputtedValue}
                 productMasterId={productDetails?.id}
-                style={{
-                  width: '480px',
-                  height: '100%',
-                  display: 'grid',
-                  marginBottom: '30px',
-                  padding: '-1px',
-                  maxHeight: '300px',
-                  overflowY: 'auto',
-                  overflowX: 'hidden',
-                }}
                 productDetails={productDetails}
               />
             )}
@@ -281,9 +271,15 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
               <label>{heartReactState.totalHeartReact}</label>
             </div>
             <div className='product-number-reaction-container'>
-              <CommentsIcon
-                onClick={() => openCommentSection(!commentSection)}
-              />
+              {commentSection ? (
+                <HighlightedCommentsIcon
+                  onClick={() => openCommentSection(!commentSection)}
+                />
+              ) : (
+                <CommentsIcon
+                  onClick={() => openCommentSection(!commentSection)}
+                />
+              )}
               <label>{totalCommentsState}</label>
             </div>
           </div>

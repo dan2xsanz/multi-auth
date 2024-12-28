@@ -1,6 +1,7 @@
 import { CommonTypography, TypographySizeEnum } from '@/index'
 import { Select, SelectItem } from '@nextui-org/react'
 import { CSSProperties, Fragment } from 'react'
+import './dropdown.css'
 
 interface ItemsInterface {
   key: string | number
@@ -49,6 +50,7 @@ export const CommonDropdown = (props: CommonDropdownInterface) => {
       <Select
         size='sm'
         radius='none'
+        className='dropdown-field'
         onChange={onChange}
         selectedKeys={selectedKeys}
         label={`${required ? '*' : ''} ${label ? label : ''}`}

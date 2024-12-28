@@ -1,0 +1,17 @@
+@media (max-width: 600px) {
+  .dropdown-field button {
+    height: 20px;
+  }
+  .dropdown-field span {
+    font-size: 10px;
+  }
+  .dropdown-field label {
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .dropdown-field input {
+    margin-top: 15px;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+}

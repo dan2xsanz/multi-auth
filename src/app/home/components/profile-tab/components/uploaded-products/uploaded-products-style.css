@@ -1,5 +1,5 @@
 .uploaded-products-main-container {
-  width: 100%;
+  width: 1000px;
   display: flex;
   gap: 10px;
   padding: 10px;
@@ -30,11 +30,6 @@
   border-color: rgba(0, 0, 0, 0.659);
 }
 
-.displayed-image-container {
-  height: 365px;
-  width: 340px;
-  /* background-color: black; */
-}
 
 .image-details {
   height: 100%;

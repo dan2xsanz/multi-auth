@@ -10,12 +10,11 @@ import {
   getProductPriceAndCurrency,
   getProductNameAndCondition,
   ProductListInterfaceValues,
-  productConditionItems,
   FilterHiglightedIcon,
-  productCategoryItems,
+  ProductDetailsModal,
   discountCalculator,
   FilterIcon,
-  ProductDetailsModal,
+  HomeFilter,
 } from '@/index'
 
 export const HomeTab = () => {
@@ -33,7 +32,7 @@ export const HomeTab = () => {
   const [openDetailModal, setOpenDetailModal] = useState<boolean>(false)
 
   // DISPLAY FILTER
-  const [displayFilter, setDisplayFilter] = useState<boolean>(true)
+  const [displayFilter, setDisplayFilter] = useState<boolean>(false)
 
   // LOADING SCREEN STORE
   const { setIsLoading } = useStore()
@@ -41,25 +40,6 @@ export const HomeTab = () => {
   // ONCLICK START SELLING
   const getAllProducts = async () => {
     getAllProductsOperations(setIsLoading, setProductList, selectedFilter)
-  }
-
-  // ON CLICK PRODUCT CATEGORY ITEM
-  const onClickProductCategoryItem = (item: { value: number | undefined }) => {
-    setSelectedFilter({
-      ...selectedFilter,
-      productCategory: item.value,
-    })
-  }
-
-  // ON CLICK PRODUCT CONDITION ITEM
-  const onClickProductConditionItem = (item: {
-    value: number | undefined
-  }): void => {
-    setSelectedFilter({
-      ...selectedFilter,
-      productCondition:
-        item.value === selectedFilter.productCondition ? undefined : item.value,
-    })
   }
 
   // ON CLICK MAIN CATEGIRY ITEM
@@ -78,53 +58,21 @@ export const HomeTab = () => {
   return (
     <Fragment>
       <Fragment>
-        {displayFilter && (
-          <div className='market-place-left-container'>
-            {/* PRODUCT CATEGORIES */}
-            <div className='market-place-product-categories-container'>
-              <ul>
-                {productCategoryItems.map((item, index) => (
-                  <li
-                    key={index}
-                    className={
-                      selectedFilter.productCategory &&
-                      selectedFilter.productCategory === item.value
-                        ? 'category-selected-style'
-                        : 'category-item-style'
-                    }
-                    onClick={() => onClickProductCategoryItem(item)}
-                  >
-                    {item.label}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {/* PRODUCT CONDITION */}
-            <div className='market-place-product-condition-container'>
-              <ul>
-                {productConditionItems.map((item, index) => (
-                  <li
-                    key={index}
-                    className={
-                      selectedFilter.productCondition &&
-                      selectedFilter.productCondition === item.value
-                        ? 'category-selected-style'
-                        : 'category-item-style'
-                    }
-                    onClick={() => onClickProductConditionItem(item)}
-                  >
-                    {item.label}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
         <div className='market-place-center-container'>
           <div className='title-container-2-link'>
             <div
               className={
-                selectedFilter.mainCategory && selectedFilter.mainCategory === 1
+                selectedFilter.mainCategory === undefined
+                  ? 'title-category-selected-style'
+                  : 'title-category-style'
+              }
+              onClick={() => onClickMainCategory(undefined)}
+            >
+              All Items
+            </div>
+            <div
+              className={
+                selectedFilter.mainCategory === 1
                   ? 'title-category-selected-style'
                   : 'title-category-style'
               }
@@ -134,7 +82,7 @@ export const HomeTab = () => {
             </div>
             <div
               className={
-                selectedFilter.mainCategory && selectedFilter.mainCategory === 2
+                selectedFilter.mainCategory === 2
                   ? 'title-category-selected-style'
                   : 'title-category-style'
               }
@@ -144,7 +92,7 @@ export const HomeTab = () => {
             </div>
             <div
               className={
-                selectedFilter.mainCategory && selectedFilter.mainCategory === 3
+                selectedFilter.mainCategory === 3
                   ? 'title-category-selected-style'
                   : 'title-category-style'
               }
@@ -154,7 +102,7 @@ export const HomeTab = () => {
             </div>
             <div
               className={
-                selectedFilter.mainCategory && selectedFilter.mainCategory === 4
+                selectedFilter.mainCategory === 4
                   ? 'title-category-selected-style'
                   : 'title-category-style'
               }
@@ -164,7 +112,7 @@ export const HomeTab = () => {
             </div>
             <div
               className={
-                selectedFilter.mainCategory && selectedFilter.mainCategory === 5
+                selectedFilter.mainCategory === 5
                   ? 'title-category-selected-style'
                   : 'title-category-style'
               }
@@ -174,7 +122,7 @@ export const HomeTab = () => {
             </div>
             <div
               className={
-                selectedFilter.mainCategory && selectedFilter.mainCategory === 6
+                selectedFilter.mainCategory === 6
                   ? 'title-category-selected-style'
                   : 'title-category-style'
               }
@@ -271,6 +219,12 @@ export const HomeTab = () => {
           setOpenDetailModal={setOpenDetailModal}
         />
       )}
+      <HomeFilter
+        displayFilter={displayFilter}
+        selectedFilter={selectedFilter}
+        setDisplayFilter={setDisplayFilter}
+        setSelectedFilter={setSelectedFilter}
+      />
     </Fragment>
   )
 }

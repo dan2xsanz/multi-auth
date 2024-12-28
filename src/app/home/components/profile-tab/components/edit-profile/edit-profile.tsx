@@ -12,6 +12,7 @@ import {
   ButtonTypeEnum,
   CommonButon,
   SizeEnum,
+  DEFAULT_PROFILE,
 } from '@/app'
 
 import './edit-profile.css'
@@ -122,8 +123,6 @@ export const EditProfile = ({
   return (
     <CommonModal
       isShowLogo
-      height='480px'
-      width='800px'
       onOkayText='Save'
       isShowFooterButtons
       onCancelText='Cancel'
@@ -155,7 +154,11 @@ export const EditProfile = ({
             isZoomed
             radius='full'
             alt='Profile'
-            src={accountDetails.profileImg}
+            src={
+              accountStoreProperties.profileImg !== 'data:image/png;base64,null'
+                ? accountStoreProperties.profileImg
+                : DEFAULT_PROFILE
+            }
             style={{ height: '150px', width: '150px' }}
           />
         </div>

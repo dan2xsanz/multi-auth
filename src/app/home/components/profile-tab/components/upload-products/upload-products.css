@@ -1,68 +1,116 @@
 /* MODAL BODY STYLE */
-.modal-body-container{
-    margin-top: 15px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
-    display: flex;
-    gap: 10px;
- }
-
- .modal-image-container{
-    width: 50%;
-    height: 440px;
-    background-color: rgba(0, 0, 0, 0.055);
- }
-
- .snz-logo-container{
-    height:440px ;
-    color: rgba(0, 0, 0, 0.163);
-    line-height: 440px;
-    text-align: center;
-    font-size: 70px;
-    font-weight: bolder;
-    user-select: none;
- }
-
- .carousel-content-container{
-    height:440px ;
-    line-height: 160px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.137);
- }
-
- .product-detail-container{
-    height: 440px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    max-height: 440px;
-    overflow-y: auto;
-    gap: 5px;
- }
-
- .text-area-style div{
-    background-color:#FBF9FA;
-    border-width: 0.001rem;
-    color: black;
-    border-color:rgba(0, 0, 0, 0.419);
+.modal-body-container {
+  margin-top: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
 }
 
-.text-area-style label{
-    color: black;
-    background-color:none;
-    border-width:0rem;
+.modal-image-container {
+  width: 50%;
+  height: 440px;
+  background-color: rgba(0, 0, 0, 0.055);
 }
 
-.text-area-style div div{
-    color: black;
-    background-color:none;
-    border-width:0rem;
+.snz-logo-container {
+  height: 440px;
+  color: rgba(0, 0, 0, 0.163);
+  line-height: 440px;
+  text-align: center;
+  font-size: 70px;
+  font-weight: bolder;
+  user-select: none;
 }
 
-.text-area-style div:hover{
-    background-color:white;
+.carousel-content-container {
+  height: 440px;
+  line-height: 160px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.137);
 }
 
-.text-area-style div div:hover{
-    background-color:white;
+.product-detail-main-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+  }
+
+.product-detail-container {
+  height: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 440px;
+  overflow-y: auto;
+  gap: 5px;
 }
+
+.product-price-container{
+  display: flex;
+  gap: 2px;
+}
+
+.text-area-style div {
+  background-color: #fbf9fa;
+  border-width: 0.001rem;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.419);
+}
+
+.text-area-style label {
+  color: black;
+  background-color: none;
+  border-width: 0rem;
+}
+
+.text-area-style div div {
+  color: black;
+  background-color: none;
+  border-width: 0rem;
+}
+
+.text-area-style div:hover {
+  background-color: white;
+}
+
+.text-area-style div div:hover {
+  background-color: white;
+}
+
+@media (max-width: 1000px) {
+    .modal-body-container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100%;
+      align-items: center;
+    }
+    .product-detail-container {
+      height: auto;
+      max-height:none;
+      overflow-y:hidden;
+    }
+    .product-price-container{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .modal-image-container {
+      width: 100%;
+      height: 50%;
+      background-color: rgba(0, 0, 0, 0.055);
+    }
+}
+
+
+@media (max-width: 600px) {
+  .text-area-style label{
+      font-size: 10px;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .text-area-style textarea{
+      font-size: 10px;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+}  

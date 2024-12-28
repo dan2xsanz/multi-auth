@@ -1,79 +1,101 @@
 .icon-style-container {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    fill: black;
-    transition: all 0.3s ease;
-  }
-  
-  .icon-style-container:hover svg{
-    fill: rgba(0, 0, 0, 0.516);
-  }
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  fill: black;
+  transition: all 0.3s ease;
+}
 
+.icon-style-container:hover svg {
+  fill: rgba(0, 0, 0, 0.516);
+}
+
+.filter-icon-style-container {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  fill: black;
+  transition: all 0.3s ease;
+}
+
+.filter-icon-style-container:hover svg {
+  fill: rgba(0, 0, 0, 0.516);
+}
+
+.add-icon-style-container {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  fill: black;
+  transition: all 0.3s ease;
+}
+
+.comment-icon-style-container {
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+  fill: black;
+  transition: all 0.3s ease;
+}
+
+.comment-icon-style-container:hover svg {
+  fill: rgba(0, 0, 0, 0.516);
+}
+
+.higlighted-love-style-container {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.higlighted-love-style-container:hover svg {
+  fill: rgba(255, 0, 0, 0.568);
+}
+
+.higlighted-favorites-style-container {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.higlighted-favorites-style-container:hover svg {
+  fill: rgb(209, 145, 8);
+  color: rgb(209, 145, 8);
+}
+
+.higlighted-love-react-container {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+  fill: rgba(255, 0, 0, 0.911);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.comment-container {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  fill: rgba(0, 0, 0, 0.527);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 600px) {
+  .filter-icon-style-container {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 430px) {
   .add-icon-style-container {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    fill: black;
-    transition: all 0.3s ease;
+    width: 70px;
+    height: 70px;
   }
-  
-  .comment-icon-style-container{
-    width: 21px;
-    height: 21px;
-    cursor: pointer;
-    fill: black;
-    transition: all 0.3s ease;
-  }
-
-  .comment-icon-style-container:hover svg{
-    fill: rgba(0, 0, 0, 0.516);
-  }
-
-
-  .higlighted-love-style-container {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .higlighted-love-style-container:hover svg{
-    fill: rgba(255, 0, 0, 0.568);
-  }
-
-  
-  .higlighted-favorites-style-container {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .higlighted-favorites-style-container:hover svg{
-    fill: rgb(209, 145, 8);
-    color: rgb(209, 145, 8);
-  }
-
-
-  .higlighted-love-react-container{
-    width: 20px;
-    height: 20px;
-    transition: all 0.3s ease;
-    fill: rgba(255, 0, 0, 0.911);
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-
-  .comment-container{
-    width: 20px;
-    height: 20px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    fill: rgba(0, 0, 0, 0.527);
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+}

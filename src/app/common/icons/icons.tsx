@@ -150,13 +150,8 @@ export const AddIcon = (props: IconInterface) => {
 export const FilterIcon = (props: IconInterface) => {
   const { onClick } = props
   return (
-    <div className='icon-style-container' onClick={onClick}>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 24 24'
-        width='20'
-        height='20'
-      >
+    <div className='filter-icon-style-container' onClick={onClick}>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
         <g id='_01_align_center' data-name='01 align center'>
           <path d='M10.931,2.75a3.728,3.728,0,0,0-7.195,0H0v2H3.736a3.728,3.728,0,0,0,7.195,0H24v-2ZM7.333,5.5a1.75,1.75,0,1,1,1.75-1.75A1.753,1.753,0,0,1,7.333,5.5Z' />
           <path d='M16.667,8.25A3.745,3.745,0,0,0,13.07,11H0v2H13.07a3.727,3.727,0,0,0,7.194,0H24V11H20.264A3.745,3.745,0,0,0,16.667,8.25Zm0,5.5A1.75,1.75,0,1,1,18.417,12,1.752,1.752,0,0,1,16.667,13.75Z' />
@@ -170,7 +165,7 @@ export const FilterIcon = (props: IconInterface) => {
 export const FilterHiglightedIcon = (props: IconInterface) => {
   const { onClick } = props
   return (
-    <div className='icon-style-container' onClick={onClick}>
+    <div className='filter-icon-style-container' onClick={onClick}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -248,6 +243,17 @@ export const CommentsIcon = (props: IconInterface) => {
   )
 }
 
+export const HighlightedCommentsIcon = (props: IconInterface) => {
+  const { onClick } = props
+  return (
+    <div className='icon-style-container' onClick={onClick}>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+        <path d='M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c0 0 0 0 0 0s0 0 0 0s0 0 0 0c0 0 0 0 0 0l.3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z' />
+      </svg>
+    </div>
+  )
+}
+
 export const SentCommentIcon = (props: IconInterface) => {
   const { onClick } = props
   return (
@@ -276,6 +282,17 @@ export const CommentsIconReact = (props: IconInterface) => {
     <div className='comment-container' onClick={onClick}>
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
         <path d='M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c0 0 0 0 0 0s0 0 0 0s0 0 0 0c0 0 0 0 0 0l.3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z' />
+      </svg>
+    </div>
+  )
+}
+
+export const MenuIconReact = (props: IconInterface) => {
+  const { onClick } = props
+  return (
+    <div className='icon-style-container' onClick={onClick}>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>
+        <path d='M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z' />
       </svg>
     </div>
   )

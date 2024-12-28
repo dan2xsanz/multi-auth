@@ -4,35 +4,50 @@
   margin-bottom: 20px;
 }
 
-
 .comment-input-field-container {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: -50px;
-  }
-  
-
-.comment-input-field{
-    background-color: rgba(128, 128, 128, 0.104);
-    font-size:smaller;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    width: 90%;
-    height: 40px;
-    color: black;
-    font-size:12px;
-    outline: none;
-    border: none;
-    padding: 10px;
-    resize: none;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: -50px;
 }
 
-.no-comment-style{
+.comment-input-field {
+  background-color: rgba(128, 128, 128, 0.104);
+  font-size: smaller;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 90%;
+  height: 40px;
+  color: black;
+  font-size: 12px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  resize: none;
+}
+
+.no-comment-style {
   margin-top: 5%;
   color: gray;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.comment-section-main-container {
+  width: 480px;
+  height: 100%;
+  display: grid;
+  margin-bottom: 30px;
+  padding: -1px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1000px) {
+  .comment-section-main-container {
+    width: 100%;
+  }
 }

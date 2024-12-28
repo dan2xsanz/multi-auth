@@ -1,77 +1,108 @@
-
 .my-custom-modal .ant-modal-content {
-    border-radius:0%;
+  border-radius: 0%;
 }
 
-.modal-main-container{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    height: 500px;
-    position: relative; 
+.modal-main-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 500px;
+  position: relative;
+  overflow-y: auto;
 }
 
-.snz-modal-background-container{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    font-size: 150px;
-    font-weight: bolder;
-    opacity: 15%;
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index:2; 
+.snz-modal-background-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+  font-weight: bolder;
+  opacity: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .snz-modal-background-container > * {
-    user-select: none;
+  user-select: none;
 }
 
-
 .modal-content {
-    position: relative;
-    z-index: 3; 
+  overflow-x: hidden;
+  position: relative;
+  z-index: 3;
 }
 
 .modal-content-title {
-    font-size: 12px;
+  font-size: 12px;
 }
 
-.footer-buttons-container{
-    display: flex;
-    justify-content: flex-end;
-    gap: 5px;
+.footer-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
 }
 
-.footer-submit-button{
-    background-color: black;
-    color: white;
-    padding: 5px;
-    width: 150px;
-    border-radius: none;
-    cursor: pointer;
-    text-align: center;
+.footer-submit-button {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  width: 150px;
+  border-radius: none;
+  cursor: pointer;
+  text-align: center;
 }
 
-.footer-submit-button:hover{
-    background-color: rgba(0, 0, 0, 0.858);
-   
+.footer-submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.858);
 }
 
-.footer-cancel-button{
-    background-color: rgba(0, 0, 0, 0.074);
-    color: black;
-    padding: 5px;
-    width: 150px;
-    border-radius: none;
-    cursor: pointer;
-    text-align: center;
+.footer-cancel-button {
+  background-color: rgba(0, 0, 0, 0.074);
+  color: black;
+  padding: 5px;
+  width: 150px;
+  border-radius: none;
+  cursor: pointer;
+  text-align: center;
 }
 
-.footer-cancel-button:hover{
-    background-color: rgba(0, 0, 0, 0.327);
-   
+.footer-cancel-button:hover {
+  background-color: rgba(0, 0, 0, 0.327);
+}
+
+@media (max-width: 600px) {
+  .my-custom-modal .ant-modal-content {
+    border-radius: 0%;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    left: 5%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .my-custom-modal .ant-modal-content {
+    border-radius: 0%;
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    left: 5%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .my-custom-modal .ant-modal-content {
+    border-radius: 0%;
+    position: fixed;
+    top: 15%;
+    right: 5%;
+    left: 5%;
+    margin: 0;
+  }
 }

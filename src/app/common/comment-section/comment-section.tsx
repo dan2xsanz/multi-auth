@@ -13,7 +13,7 @@ import { WebSocketTopic } from '@/index'
 
 interface CommentSectionProps {
   inputedValue: string
-  style: React.CSSProperties
+  style?: React.CSSProperties
   setInputtedValue: (data: string) => void
   productDetails: ProductListInterface | undefined
   productMasterId: number | undefined
@@ -21,13 +21,8 @@ interface CommentSectionProps {
 
 export const CommentSection = (props: CommentSectionProps) => {
   // COMMENT SECTION PROPS
-  const {
-    style,
-    inputedValue,
-    productDetails,
-    productMasterId,
-    setInputtedValue,
-  } = props
+  const { inputedValue, productDetails, productMasterId, setInputtedValue } =
+    props
 
   // LOADING SCREEN STORE
   const { setIsLoading } = useStore()
@@ -86,7 +81,7 @@ export const CommentSection = (props: CommentSectionProps) => {
 
   return (
     <Fragment>
-      <Card style={style}>
+      <Card className='comment-section-main-container'>
         {commentSectionList.length > 0 &&
           commentSectionList.map((data, index) => {
             return (

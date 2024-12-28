@@ -253,14 +253,13 @@ export const UploadProduct = (props: UploadProductProps) => {
               })
             }}
           />
-          <div style={{ display: 'flex', gap: '2px' }}>
+          <div className='product-price-container'>
             <CommonDropdown
               required
               key={'productCurrency'}
               items={productCurrencyType}
               label={'Currency'}
               defaultSelectedKeys={['2']}
-              style={{ width: '120px' }}
               isError={errorFields.includes('productCurrency')}
               selectedKeys={[productUploadDetails.productCurrency]}
               onChange={(data) => {

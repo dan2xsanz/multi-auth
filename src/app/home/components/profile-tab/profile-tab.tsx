@@ -27,6 +27,7 @@ import {
   ButtonTypeEnum,
   CommonButon,
   SizeEnum,
+  DEFAULT_PROFILE,
 } from '@/index'
 
 export const ProfileTab = () => {
@@ -156,15 +157,7 @@ export const ProfileTab = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div
-          style={{
-            display: 'flex',
-            position: 'absolute',
-            right: '10px',
-            bottom: '10px',
-            gap: '5px',
-          }}
-        >
+        <div className='main-profile-button-container'>
           {!editPosition && (
             <Fragment>
               <CommonButon
@@ -193,19 +186,18 @@ export const ProfileTab = () => {
           )}
         </div>
       </div>
-
       <div className='main-profile-image-details-container'>
         <div className='main-profile-image-container'>
           <Image
             isZoomed
             radius='full'
+            className='main-profile-image'
             alt='NextUI Fruit Image with Zoom'
             src={
-              accountStoreProperties.profileImg
+              accountStoreProperties.profileImg !== 'data:image/png;base64,null'
                 ? accountStoreProperties.profileImg
-                : ''
+                : DEFAULT_PROFILE
             }
-            style={{ height: '150px', width: '150px' }}
           />
         </div>
         <div className='main-profile-name-membership'>
@@ -233,7 +225,7 @@ export const ProfileTab = () => {
             className='add-new-listing-container'
             onClick={() => setOpendAddNewProduct(true)}
           >
-            <AddIcon />
+            <AddIcon style={{ marginLeft: '20px' }} />
             <div style={{ textAlign: 'center' }}>
               When you start selling, your listings will appear here.
             </div>

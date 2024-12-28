@@ -62,3 +62,17 @@
     display:flex;
     align-items: center;
   }
+
+  .menu-icon-container{
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+    .header-icon-container {
+      display: none;
+    }
+    .menu-icon-container{
+      display: flex;
+    }
+  }
+  
