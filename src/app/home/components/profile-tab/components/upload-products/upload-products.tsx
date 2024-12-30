@@ -118,7 +118,7 @@ export const UploadProduct = (props: UploadProductProps) => {
   }
 
   // ONCLICK START SELLING
-  const startSellingItems = async () => {
+  const startSellingItems = () => {
     startSellingItemsOperation(
       accountId,
       setIsLoading,

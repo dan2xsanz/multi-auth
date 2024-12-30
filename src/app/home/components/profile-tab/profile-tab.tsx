@@ -78,6 +78,7 @@ export const ProfileTab = () => {
       })
     } finally {
       setIsLoading(false)
+      setRefreshList(false)
     }
   }, [accountStoreProperties.accountId, setIsLoading])
 
@@ -232,7 +233,7 @@ export const ProfileTab = () => {
           </div>
         )}
         {productList?.length && (
-          <Fragment>
+          <div style={{ width: '100%' }}>
             {productList?.map((product, index) => (
               <UploadedProducts
                 key={index}
@@ -251,7 +252,7 @@ export const ProfileTab = () => {
                 }}
               />
             ))}
-          </Fragment>
+          </div>
         )}
       </div>
       <UploadProduct

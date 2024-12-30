@@ -142,42 +142,37 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
     <div style={{ display: 'grid' }}>
       <div className='uploaded-products-main-container'>
         <div className='images-container'>
-          <div className='additional-image-container'>
+          <div className='uploaded-additional-image-container'>
             <AntdImage
-              width={80}
-              height={80}
               preview={false}
-              className='image-container'
+              className='image-list-container'
               src={productUploadDetails.image1}
               onMouseEnter={() => setMainImageSrc(productUploadDetails.image1)}
             />
             <AntdImage
-              width={80}
-              height={80}
               preview={false}
-              className='image-container'
+              className='image-list-container'
               src={productUploadDetails.image2}
               onMouseEnter={() => setMainImageSrc(productUploadDetails.image2)}
             />
             <AntdImage
-              width={80}
-              height={80}
               preview={false}
-              className='image-container'
+              className='image-list-container'
               src={productUploadDetails.image3}
               onMouseEnter={() => setMainImageSrc(productUploadDetails.image3)}
             />
             <AntdImage
-              width={80}
-              height={80}
               preview={false}
-              className='image-container'
+              className='image-list-container'
               src={productUploadDetails.image4}
               onMouseEnter={() => setMainImageSrc(productUploadDetails.image4)}
             />
           </div>
-          <div className='displayed-image-container'>
-            <AntdImage width={340} height={365} src={mainImageSrc} />
+          <div className='uploaded-displayed-image-container'>
+            <AntdImage
+              className='uploaded-displayed-image-container'
+              src={mainImageSrc}
+            />
           </div>
         </div>
         <div
@@ -191,18 +186,18 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
           }}
         >
           <div className='image-name-availability-container'>
-            <div className='image-name-detail'>
+            <div className='uploaded-image-name-detail'>
               {getProductNameAndCondition(productUploadDetails)}
             </div>
             {onStockProduct ? (
-              <div className='profile-image-out-stock-container'>
+              <div className='uploaded-profile-image-out-stock-container'>
                 OUT OF STOCK
               </div>
             ) : (
-              <div className='profile-image-on-stock-container'>ON STOCK</div>
+              <div className='uploaded-profile-image-on-stock-container'>ON STOCK</div>
             )}
           </div>
-          <div className='image-category'>
+          <div className='uploaded-image-category'>
             {`${getProductItemFor(productUploadDetails)} ${getProductCategory(productUploadDetails)}`}
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
@@ -218,14 +213,14 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
             <div
               className={
                 productUploadDetails.productDiscount
-                  ? 'image-price-discounted'
-                  : 'image-price'
+                  ? 'uploaded-image-price-discounted'
+                  : 'uploaded-image-price'
               }
             >
               {getProductCurrencyAndPrice(productUploadDetails)}
             </div>
             {productUploadDetails.productDiscount && (
-              <div className='image-price-discount'>{` ${productUploadDetails.productDiscount}% off`}</div>
+              <div className='uploaded-image-price-discount'>{` ${productUploadDetails.productDiscount}% off`}</div>
             )}
           </div>
           <div className='image-description'>
