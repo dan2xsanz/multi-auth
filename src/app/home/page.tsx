@@ -13,6 +13,7 @@ import {
   MenuIconReact,
 } from '@/index'
 import { MessagesTab } from './components/messages-tab/messages-tab'
+import { Dropdown, MenuProps, message } from 'antd'
 
 export default function HomePage() {
   // ACOUNT MASTER DETAILS
@@ -54,6 +55,56 @@ export default function HomePage() {
     }
   }, [token])
 
+  const onClick: MenuProps['onClick'] = ({ key }) => {
+    switch (key) {
+      case '1':
+        setHeaderButton(1)
+        break
+      case '2':
+        setHeaderButton(2)
+        break
+      case '3':
+        setOpenNotification(true)
+        break
+      case '4':
+        setOpenMessages(true)
+        break
+      case '5':
+        setHeaderButton(3)
+        break
+      case '6':
+        redirectToLoginScreen()
+        break
+    }
+  }
+
+  const items: MenuProps['items'] = [
+    {
+      label: 'Home',
+      key: '1',
+    },
+    {
+      label: 'Favorites',
+      key: '2',
+    },
+    {
+      label: 'Notication',
+      key: '3',
+    },
+    {
+      label: 'Messages',
+      key: '4',
+    },
+    {
+      label: `${firstName} ${lastName}`,
+      key: '5',
+    },
+    {
+      label: 'Logout',
+      key: '6',
+    },
+  ]
+
   return (
     <Fragment>
       {token && (
@@ -89,7 +140,11 @@ export default function HomePage() {
                 </div>
               </div>
               <div className='menu-icon-container'>
-                <MenuIconReact />
+                <Dropdown menu={{ items, onClick }}>
+                  <a onClick={(e) => e.preventDefault()}>
+                    <MenuIconReact />
+                  </a>
+                </Dropdown>
               </div>
             </div>
           </div>

@@ -194,7 +194,9 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
                 OUT OF STOCK
               </div>
             ) : (
-              <div className='uploaded-profile-image-on-stock-container'>ON STOCK</div>
+              <div className='uploaded-profile-image-on-stock-container'>
+                ON STOCK
+              </div>
             )}
           </div>
           <div className='uploaded-image-category'>
@@ -202,7 +204,7 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
             {productUploadDetails.productDiscount && (
-              <div className='image-price'>
+              <div className='uploaded-image-price'>
                 {discountCalculator(
                   productUploadDetails.productPrice,
                   productUploadDetails.productDiscount,
@@ -223,7 +225,7 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
               <div className='uploaded-image-price-discount'>{` ${productUploadDetails.productDiscount}% off`}</div>
             )}
           </div>
-          <div className='image-description'>
+          <div className='uploaded-image-description'>
             {productUploadDetails.productDescription}
           </div>
         </div>

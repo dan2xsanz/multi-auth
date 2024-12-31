@@ -214,7 +214,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
               label={`${getProductItemFor(productDetails)} ${getProductCategory(productDetails)}`}
             />
             {!commentSection && (
-              <Fragment>
+              <div className='image-details'>
                 <div
                   style={{ display: 'flex', gap: '10px', marginTop: '10px' }}
                 >
@@ -243,7 +243,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
                 <div className='product-details-image-description'>
                   {productDetails?.productDescription}
                 </div>
-              </Fragment>
+              </div>
             )}
             {commentSection && (
               <CommentSection

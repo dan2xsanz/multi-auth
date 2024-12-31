@@ -4,7 +4,13 @@
   gap: 10px;
   padding: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for scaling and glow */
 }
+
+.uploaded-products-main-container:hover {
+  transform: scale(1.01); /* Scale up the element by 10% */
+ }
+
 
 .images-container {
   display: flex;
@@ -103,7 +109,7 @@
   color: green;
 }
 
-.image-description {
+.uploaded-image-description {
   font-size: 14px;
   max-height: 245px;
   overflow-wrap: break-word;
@@ -121,7 +127,7 @@
   font-weight: bold;
   font-size: 12px;
   color: black;
-  margin-top: -20px;
+  margin-top: -15px;
   margin-right: 20px;
   border-bottom-width: 1px;
 }
@@ -135,27 +141,9 @@
   color: rgba(0, 0, 0, 0.438);
 }
 
-@media (max-width: 1600px) {
-  .image-name-availability-container {
-    display: grid;
-  }
-  .image-description {
-    height: 100px;
-  }
-}
 
 @media (max-width: 1500px) {
-  .uploaded-additional-image-container {
-    height: 220px;
-  }
-  .image-list-container {
-    width: 50px !important;
-    height: 50px !important;
-  }
-  .uploaded-displayed-image-container {
-    width: 200px !important;
-    height: 215px !important;
-  }
+ 
   .uploaded-image-name-detail {
     font-size: 15px;
   }
@@ -177,18 +165,54 @@
   .uploaded-image-price-discount {
     font-size: 15px;
   }
+  
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+  .uploaded-additional-image-container {
+    height: 220px;
+  }
+  .image-list-container {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .uploaded-displayed-image-container {
+    width: 200px !important;
+    height: 215px !important;
+  }
   .uploaded-products-main-container {
     display: grid;
-    /* justify-content: center; */
-  }
-  /* .uploaded-images-container {
     justify-content: center;
   }
-    */
+  .uploaded-images-container {
+    justify-content: center;
+  }
+   
   .uploaded-additional-image-container {
     margin-left: -30px;
+  }
+  .uploaded-image-name-detail {
+    font-size: 12px;
+  }
+  .uploaded-profile-image-out-stock-container {
+    font-size: 12px;
+  }
+  .uploaded-profile-image-on-stock-container {
+    font-size: 12px;
+  }
+  .uploaded-image-category {
+    font-size: 12px;
+  }
+  .uploaded-image-price {
+    font-size: 12px;
+  }
+  .uploaded-image-price-discounted {
+    font-size: 12px;
+  }
+  .uploaded-image-price-discount {
+    font-size: 12px;
+  }
+  .uploaded-image-description {
+    font-size: 10px;
   }
 }

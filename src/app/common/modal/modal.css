@@ -89,18 +89,7 @@
   .my-custom-modal .ant-modal-content {
     border-radius: 0%;
     position: fixed;
-    top: 10%;
-    right: 5%;
-    left: 5%;
-    margin: 0;
-  }
-}
-
-@media (max-width: 400px) {
-  .my-custom-modal .ant-modal-content {
-    border-radius: 0%;
-    position: fixed;
-    top: 15%;
+    top: 8%;
     right: 5%;
     left: 5%;
     margin: 0;
