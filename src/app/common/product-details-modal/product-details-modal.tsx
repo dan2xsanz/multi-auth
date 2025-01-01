@@ -176,6 +176,9 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
 
   useEffect(() => {
     openCommentSection(false)
+    setTotalCommentState(0)
+    setHeartReactState(HeartReactStateDefaultValue)
+    setFavoriteState(FavoritesStateDefaultValue)
   }, [openDetailModal])
 
   return (
@@ -204,7 +207,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
         <div className='product-detail-main-container'>
           <div className='product-detail-container'>
             <CommonTypography
-              style={{ fontWeight: 'bolder', marginTop: '-5px' }}
+              style={{ fontWeight: 'bolder' }}
               size={TypographySizeEnum.large}
               label={getProductNameAndCondition(productDetails)}
             />

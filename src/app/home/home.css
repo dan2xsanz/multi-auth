@@ -5,7 +5,10 @@
     height: 100vh;
     display: flex;
     align-items:start;
+    
     background-color: white;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .header-container {

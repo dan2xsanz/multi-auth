@@ -11,6 +11,13 @@ import {
   SnzLogo,
   CommonDrawer,
   MenuIconReact,
+  HomeIconReact,
+  FavoriteIcon,
+  NoticationIcon,
+  MessageIcon,
+  ProfileIcon,
+  FavoriteMenuIcon,
+  Footer,
 } from '@/index'
 import { MessagesTab } from './components/messages-tab/messages-tab'
 import { Dropdown, MenuProps, message } from 'antd'
@@ -139,13 +146,13 @@ export default function HomePage() {
                   Logout
                 </div>
               </div>
-              <div className='menu-icon-container'>
+              {/* <div className='menu-icon-container'>
                 <Dropdown menu={{ items, onClick }}>
                   <a onClick={(e) => e.preventDefault()}>
                     <MenuIconReact />
                   </a>
                 </Dropdown>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className='body-container'>
@@ -153,12 +160,16 @@ export default function HomePage() {
             {headerButton === 2 && <FavoritesTab />}
             {headerButton === 3 && <ProfileTab />}
           </div>
+          {/* FOOTER CONTAINER */}
+          <Footer />
+          {/* NOTIFICATION DRAWER */}
           <CommonDrawer
             openDrawer={openNotification}
             setOpenDrawer={setOpenNotification}
           >
             <NotificationTab />
           </CommonDrawer>
+          {/* MESSAGES DRAWER */}
           <CommonDrawer
             openDrawer={openMessages}
             setOpenDrawer={setOpenMessages}

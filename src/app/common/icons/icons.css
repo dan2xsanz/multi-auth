@@ -86,6 +86,33 @@
   left: 0;
 }
 
+.home-icon-style-container {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  fill: black;
+  transition: all 0.3s ease;
+  border-width: 5px;
+  border-radius: 100%;
+  padding: 6px;
+}
+
+.home-icon-style-container:hover svg {
+  fill: rgba(0, 0, 0, 0.516);
+}
+
+.menu-icon-style-container {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  fill: black;
+  transition: all 0.3s ease;
+}
+
+.menu-icon-style-container:hover svg {
+  fill: rgba(0, 0, 0, 0.516);
+}
+
 @media (max-width: 600px) {
   .filter-icon-style-container {
     width: 15px;
