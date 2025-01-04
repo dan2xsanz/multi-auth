@@ -56,175 +56,181 @@ export const HomeTab = () => {
   }, [selectedFilter])
 
   return (
-    <Fragment>
+    <div className='body-container'>
       <Fragment>
-        <div className='market-place-center-container'>
-          <div className='title-container-2-link'>
-            <div
-              className={
-                selectedFilter.mainCategory === undefined
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(undefined)}
-            >
-              All Items
+        <Fragment>
+          <div className='market-place-center-container'>
+            <div className='title-container-2-link'>
+              <div
+                className={
+                  selectedFilter.mainCategory === undefined
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(undefined)}
+              >
+                All Items
+              </div>
+              <div
+                className={
+                  selectedFilter.mainCategory === 1
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(1)}
+              >
+                Men
+              </div>
+              <div
+                className={
+                  selectedFilter.mainCategory === 2
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(2)}
+              >
+                Women
+              </div>
+              <div
+                className={
+                  selectedFilter.mainCategory === 3
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(3)}
+              >
+                Kids
+              </div>
+              <div
+                className={
+                  selectedFilter.mainCategory === 4
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(4)}
+              >
+                Sale
+              </div>
+              <div
+                className={
+                  selectedFilter.mainCategory === 5
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(5)}
+              >
+                Best Sellers
+              </div>
+              <div
+                className={
+                  selectedFilter.mainCategory === 6
+                    ? 'title-category-selected-style'
+                    : 'title-category-style'
+                }
+                onClick={() => onClickMainCategory(6)}
+              >
+                New & Featured
+              </div>
+              {displayFilter && (
+                <FilterHiglightedIcon onClick={() => setDisplayFilter(false)} />
+              )}
+              {!displayFilter && (
+                <FilterIcon onClick={() => setDisplayFilter(true)} />
+              )}
             </div>
-            <div
-              className={
-                selectedFilter.mainCategory === 1
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(1)}
-            >
-              Men
-            </div>
-            <div
-              className={
-                selectedFilter.mainCategory === 2
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(2)}
-            >
-              Women
-            </div>
-            <div
-              className={
-                selectedFilter.mainCategory === 3
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(3)}
-            >
-              Kids
-            </div>
-            <div
-              className={
-                selectedFilter.mainCategory === 4
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(4)}
-            >
-              Sale
-            </div>
-            <div
-              className={
-                selectedFilter.mainCategory === 5
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(5)}
-            >
-              Best Sellers
-            </div>
-            <div
-              className={
-                selectedFilter.mainCategory === 6
-                  ? 'title-category-selected-style'
-                  : 'title-category-style'
-              }
-              onClick={() => onClickMainCategory(6)}
-            >
-              New & Featured
-            </div>
-            {displayFilter && (
-              <FilterHiglightedIcon onClick={() => setDisplayFilter(false)} />
-            )}
-            {!displayFilter && (
-              <FilterIcon onClick={() => setDisplayFilter(true)} />
-            )}
-          </div>
-          <div className='scrollable-center-container'>
-            {productList?.map(
-              (product: ProductListInterface, index: number) => (
-                <div key={index} className='image-main-container'>
-                  <div className='image-just-style-container'>
-                    {product.justIn && (
-                      <div className='image-just-in-container'>JUST IN</div>
-                    )}
-                  </div>
-                  <div
-                    className='image-container'
-                    onClick={() => {
-                      setProductDetails(product)
-                      setOpenDetailModal(true)
-                    }}
-                  >
-                    <Image
-                      radius='none'
-                      isZoomed
-                      className='image-style'
-                      alt={`Product ${product.productName} Image`}
-                      src={`${`data:image/jpeg;base64,`}${product.image1}`}
-                    />
-                  </div>
-                  <div key={index} className='image-detail-container'>
-                    <div className='image-price-on-stock-container'>
-                      <div style={{ display: 'flex', gap: '5px' }}>
-                        {product.productDiscount && (
-                          <div className='image-price-label-container'>
-                            {discountCalculator(
-                              product.productPrice,
-                              product.productDiscount,
-                              product.productCurrency,
-                            )}
+            <div className='scrollable-center-container'>
+              {productList?.map(
+                (product: ProductListInterface, index: number) => (
+                  <div key={index} className='image-main-container'>
+                    <div className='image-just-style-container'>
+                      {product.justIn && (
+                        <div className='image-just-in-container'>JUST IN</div>
+                      )}
+                    </div>
+                    <div
+                      className='image-container'
+                      onClick={() => {
+                        setProductDetails(product)
+                        setOpenDetailModal(true)
+                      }}
+                    >
+                      <Image
+                        radius='none'
+                        isZoomed
+                        className='image-style'
+                        alt={`Product ${product.productName} Image`}
+                        src={`${`data:image/jpeg;base64,`}${product.image1}`}
+                      />
+                    </div>
+                    <div key={index} className='image-detail-container'>
+                      <div className='image-price-on-stock-container'>
+                        <div style={{ display: 'flex', gap: '5px' }}>
+                          {product.productDiscount && (
+                            <div className='image-price-label-container'>
+                              {discountCalculator(
+                                product.productPrice,
+                                product.productDiscount,
+                                product.productCurrency,
+                              )}
+                            </div>
+                          )}
+                          <div
+                            className={
+                              product.productDiscount
+                                ? 'image-price-label-container-discounted'
+                                : 'image-price-label-container'
+                            }
+                          >
+                            {getProductPriceAndCurrency(product)}
                           </div>
-                        )}
-                        <div
-                          className={
-                            product.productDiscount
-                              ? 'image-price-label-container-discounted'
-                              : 'image-price-label-container'
-                          }
-                        >
-                          {getProductPriceAndCurrency(product)}
+                          {product.productDiscount && (
+                            <div className='image-discount-label-container'>
+                              {`${product.productDiscount}%`}
+                            </div>
+                          )}
                         </div>
-                        {product.productDiscount && (
-                          <div className='image-discount-label-container'>
-                            {`${product.productDiscount}%`}
+                        {product.isSold ? (
+                          <div className='image-out-of-stock-container'>
+                            OUT OF STOCK
+                          </div>
+                        ) : (
+                          <div className='image-on-stock-container'>
+                            ON STOCK
                           </div>
                         )}
                       </div>
-                      {product.isSold ? (
-                        <div className='image-out-of-stock-container'>
-                          OUT OF STOCK
-                        </div>
-                      ) : (
-                        <div className='image-on-stock-container'>ON STOCK</div>
-                      )}
-                    </div>
-                    <div className='image-name-label-container'>
-                      {getProductNameAndCondition(product).length >= 50
-                        ? getProductNameAndCondition(product).substring(0, 50) +
-                          '...'
-                        : getProductNameAndCondition(product)}
-                    </div>
-                    <div className='image-name-label-container'>
-                      {product.productLocation}
+                      <div className='image-name-label-container'>
+                        {getProductNameAndCondition(product).length >= 50
+                          ? getProductNameAndCondition(product).substring(
+                              0,
+                              50,
+                            ) + '...'
+                          : getProductNameAndCondition(product)}
+                      </div>
+                      <div className='image-name-label-container'>
+                        {product.productLocation}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ),
-            )}
+                ),
+              )}
+            </div>
           </div>
-        </div>
-      </Fragment>
-      {productDetails && (
-        <ProductDetailsModal
-          openDetailModal={openDetailModal}
-          productMasterId={productDetails.id}
-          setOpenDetailModal={setOpenDetailModal}
+        </Fragment>
+        {productDetails && (
+          <ProductDetailsModal
+            openDetailModal={openDetailModal}
+            productMasterId={productDetails.id}
+            setOpenDetailModal={setOpenDetailModal}
+          />
+        )}
+        <HomeFilter
+          displayFilter={displayFilter}
+          selectedFilter={selectedFilter}
+          setDisplayFilter={setDisplayFilter}
+          setSelectedFilter={setSelectedFilter}
         />
-      )}
-      <HomeFilter
-        displayFilter={displayFilter}
-        selectedFilter={selectedFilter}
-        setDisplayFilter={setDisplayFilter}
-        setSelectedFilter={setSelectedFilter}
-      />
-    </Fragment>
+      </Fragment>
+    </div>
   )
 }

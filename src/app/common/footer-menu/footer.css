@@ -8,6 +8,7 @@
   justify-content: space-around;
   align-items: center;
   border-top: 2px solid rgba(128, 128, 128, 0.208);
+  background-color: white;
 }
 
 @media (max-width: 700px) {

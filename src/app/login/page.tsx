@@ -14,7 +14,6 @@ import {
   CommonLinkButton,
   CommonTypography,
   CommonButon,
-  SnzLogo,
 } from '../common'
 import {
   ButtonColorTypeEnum,

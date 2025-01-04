@@ -3,10 +3,10 @@ import { ProductDetailsModal, UploadProductInterface } from '@/index'
 import { FavoritesProducts } from './components/favorite-products'
 import React, { Fragment, useEffect, useState } from 'react'
 import { accountDetailStore, useStore } from '@/app/store'
-import { ProductListInterface } from '../home-tab/data'
+import { ProductListInterface } from '../home/components/home-tab/data'
 import { getAllFavoriteProducts } from './operation'
 
-export const FavoritesTab = () => {
+export default function Favorites() {
   // PRODUCT LIST
   const [productList, setProductList] = useState<UploadProductInterface[]>()
 

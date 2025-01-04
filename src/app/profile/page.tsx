@@ -9,18 +9,11 @@ import React, {
 } from 'react'
 import { openErrorNotification } from '@/app/common/pop-up'
 import { accountDetailStore, useStore } from '@/app/store'
-import { ProductListInterface } from '../home-tab/data'
+import { ProductListInterface } from '../home/components/home-tab/data'
 import { ResponseInterface } from '@/config/config'
 import { AddIcon } from '@/app/common/icons'
 import { Image } from '@nextui-org/react'
 import './profile-tab.css'
-import {
-  UploadProductInterface,
-  UploadProductValues,
-  UploadedProducts,
-  UploadProduct,
-  EditProfile,
-} from './components'
 import {
   ProductDetailsModal,
   ButtonColorTypeEnum,
@@ -28,9 +21,14 @@ import {
   CommonButon,
   SizeEnum,
   DEFAULT_PROFILE,
+  UploadProductInterface,
+  UploadProductValues,
 } from '@/index'
+import { UploadedProducts } from './components/uploaded-products'
+import { UploadProduct } from './components/upload-products'
+import { EditProfile } from './components/edit-profile'
 
-export const ProfileTab = () => {
+export default function Profile() {
   // LOADING SCREEN STORE
   const { setIsLoading, isLoading } = useStore()
 

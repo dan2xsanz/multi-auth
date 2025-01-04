@@ -1,16 +1,13 @@
-.button-link{
-   cursor: pointer;
-   color: #2B2024;
-   font-family:Verdana, Geneva, Tahoma, sans-serif;
+.button-link {
+  cursor: pointer;
+  color: #2b2024 !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.button-link-x-xmall{
-   cursor: pointer;
-   font-size: 10px;
-   font-weight: bold;
-   color: #2B2024;
-   font-family:Verdana, Geneva, Tahoma, sans-serif;
+.button-link-x-xmall {
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
+  color: #2b2024;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-
-

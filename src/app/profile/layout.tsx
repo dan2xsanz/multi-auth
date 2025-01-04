@@ -2,9 +2,9 @@
 import { Spin } from 'antd'
 import { Footer } from '../common'
 import { HeaderMenu } from '../common/header-menu'
+import './profile.css'
 import { useStore } from '../store'
-import './home.css'
-export default function HomeLayout({
+export default function ProfileLayout({
   children,
 }: {
   children: React.ReactNode

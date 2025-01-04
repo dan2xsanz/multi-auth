@@ -1,5 +1,5 @@
 'use client'
-import { ProductListInterface } from '../../home-tab/data'
+import { ProductListInterface } from '../../home/components/home-tab/data'
 import { useEffect, useState } from 'react'
 import { Image as AntdImage } from 'antd'
 import {

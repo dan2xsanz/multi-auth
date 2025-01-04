@@ -1,7 +1,8 @@
-export * from "./home"
-export * from "./layout"
-export* from "./login"
-export * from "./service"
-export * from "./common"
-export * from "./constant"
-export * from "./utils"
+export * from './home'
+export * from './layout'
+export * from './login'
+export * from './service'
+export * from './common'
+export * from './constant'
+export * from './utils'
+export * from './favorites'

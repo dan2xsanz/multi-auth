@@ -3,8 +3,8 @@ import { Spin } from 'antd'
 import { Footer } from '../common'
 import { HeaderMenu } from '../common/header-menu'
 import { useStore } from '../store'
-import './home.css'
-export default function HomeLayout({
+import './favorites.css'
+export default function FavoritesLayout({
   children,
 }: {
   children: React.ReactNode
@@ -13,12 +13,12 @@ export default function HomeLayout({
 
   return (
     <div className='main-background'>
-      {isLoading && (
-        <div className='overlay'>
-          <Spin size='large' />
-        </div>
-      )}
       <div className={`main-container`}>
+        {isLoading && (
+          <div className='overlay'>
+            <Spin size='large' />
+          </div>
+        )}
         <HeaderMenu />
         {children}
         <Footer />
