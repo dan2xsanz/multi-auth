@@ -56,6 +56,7 @@ export const HomeTab = () => {
   // SAMPLE PAGINATION IMPLEMENTATION
   const lastProductRef = useRef(null)
 
+  // GET ALL PRODUCTS LIST
   const getAllProducts = async () => {
     getAllProductsOperations(
       setIsLoading,
@@ -272,17 +273,9 @@ export const HomeTab = () => {
               })}
             </div>
             {displayBtn && (
-              <div
-                style={{
-                  width: '100%',
-                  backgroundColor: 'green',
-                  marginBottom: '20px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
+              <div className='load-more-container-style'>
                 <div
+                  className='load-more-label'
                   onClick={() => {
                     setSelectedFilter((prev) => {
                       return {

@@ -6,7 +6,7 @@ export interface PaginationInterface {
 
 export const PaginationDefault: PaginationInterface = {
   // PAGINATION FILTERING
-  limit: 1,
+  limit: 100,
   offset: 0,
   totalItems: 0,
 }

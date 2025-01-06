@@ -41,7 +41,7 @@ export const ProductListValues: ProductListInterface = {
   accountMasterId: undefined,
   justIn: false,
   // PAGINATION FILTERING
-  limit: 1,
+  limit: 100,
   offset: 0,
   totalItems: 0,
 }

@@ -13,7 +13,7 @@ export const ProductListInterfaceValues: ProductListFilterInterfaceValues = {
   productCategory: undefined,
   productCondition: undefined,
   // PAGINATION FILTERING
-  limit: 1,
+  limit: 100,
   offset: 0,
   totalItems: 0,
 }
