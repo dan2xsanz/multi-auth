@@ -1,4 +1,6 @@
-export interface ProductListInterface {
+import { PaginationInterface } from '@/app'
+
+export interface ProductListInterface extends PaginationInterface {
   id?: number | undefined
   image1?: string | undefined
   image2?: string | undefined
@@ -38,4 +40,8 @@ export const ProductListValues: ProductListInterface = {
   productLocation: '',
   accountMasterId: undefined,
   justIn: false,
+  // PAGINATION FILTERING
+  limit: 1,
+  offset: 0,
+  totalItems: 0,
 }

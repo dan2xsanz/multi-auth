@@ -1,5 +1,5 @@
 'use client'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { getAllProductsOperations } from './operations'
 import { ProductListInterface } from './data'
 import { Image } from '@nextui-org/react'
@@ -15,11 +15,16 @@ import {
   discountCalculator,
   FilterIcon,
   HomeFilter,
+  PaginationInterface,
+  PaginationDefault,
+  CommonButon,
+  ButtonTypeEnum,
+  SizeEnum,
 } from '@/index'
 
 export const HomeTab = () => {
   // PRODUCT LIST
-  const [productList, setProductList] = useState<ProductListInterface[]>()
+  const [productList, setProductList] = useState<ProductListInterface[]>([])
 
   // SELECTED FILTER
   const [selectedFilter, setSelectedFilter] =
@@ -34,13 +39,11 @@ export const HomeTab = () => {
   // DISPLAY FILTER
   const [displayFilter, setDisplayFilter] = useState<boolean>(false)
 
+  // DISPLAY LOAD MORE BUTTON
+  const [displayBtn, setDisplayBtn] = useState<boolean>(false)
+
   // LOADING SCREEN STORE
   const { setIsLoading } = useStore()
-
-  // ONCLICK START SELLING
-  const getAllProducts = async () => {
-    getAllProductsOperations(setIsLoading, setProductList, selectedFilter)
-  }
 
   // ON CLICK MAIN CATEGIRY ITEM
   const onClickMainCategory = (item: number | undefined) => {
@@ -50,10 +53,58 @@ export const HomeTab = () => {
     })
   }
 
+  // SAMPLE PAGINATION IMPLEMENTATION
+  const lastProductRef = useRef(null)
+
+  const getAllProducts = async () => {
+    getAllProductsOperations(
+      setIsLoading,
+      setProductList,
+      {
+        ...selectedFilter,
+        limit: selectedFilter.limit,
+        offset: selectedFilter.offset,
+      },
+      productList,
+    )
+  }
+
   // REFRESH LIST EVENT HANDLER
   useEffect(() => {
     getAllProducts()
   }, [selectedFilter])
+
+  // REQUEST TRIGGER FOR PAGINATION REQUEST
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (
+            productList &&
+            productList.length != 0 &&
+            productList[0].totalItems
+          ) {
+            if (productList.length < productList[0].totalItems) {
+              setDisplayBtn(true)
+            } else {
+              setDisplayBtn(false)
+            }
+          }
+        }
+      },
+      { root: null, threshold: 1.0 }, // Fully visible
+    )
+
+    if (lastProductRef.current) {
+      observer.observe(lastProductRef.current)
+    }
+
+    return () => {
+      if (lastProductRef.current) {
+        observer.unobserve(lastProductRef.current)
+      }
+    }
+  }, [productList])
 
   return (
     <div className='body-container'>
@@ -139,9 +190,14 @@ export const HomeTab = () => {
               )}
             </div>
             <div className='scrollable-center-container'>
-              {productList?.map(
-                (product: ProductListInterface, index: number) => (
-                  <div key={index} className='image-main-container'>
+              {productList?.map((product, index) => {
+                const isLastProduct = index === productList.length - 1
+                return (
+                  <div
+                    key={index}
+                    className='image-main-container'
+                    ref={isLastProduct ? lastProductRef : null}
+                  >
                     <div className='image-just-style-container'>
                       {product.justIn && (
                         <div className='image-just-in-container'>JUST IN</div>
@@ -162,7 +218,7 @@ export const HomeTab = () => {
                         src={`${`data:image/jpeg;base64,`}${product.image1}`}
                       />
                     </div>
-                    <div key={index} className='image-detail-container'>
+                    <div className='image-detail-container'>
                       <div className='image-price-on-stock-container'>
                         <div style={{ display: 'flex', gap: '5px' }}>
                           {product.productDiscount && (
@@ -212,9 +268,34 @@ export const HomeTab = () => {
                       </div>
                     </div>
                   </div>
-                ),
-              )}
+                )
+              })}
             </div>
+            {displayBtn && (
+              <div
+                style={{
+                  width: '100%',
+                  backgroundColor: 'green',
+                  marginBottom: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <div
+                  onClick={() => {
+                    setSelectedFilter((prev) => {
+                      return {
+                        ...prev,
+                        limit: prev.limit * 2,
+                      }
+                    })
+                  }}
+                >
+                  Load more items
+                </div>
+              </div>
+            )}
           </div>
         </Fragment>
         {productDetails && (

@@ -10,6 +10,7 @@ export const getAllProductsOperations = async (
   setIsLoading: (data: boolean) => void,
   setProductList: (data: ProductListInterface[]) => void,
   selectedFilter: ProductListFilterInterfaceValues,
+  productList: ProductListInterface[],
 ) => {
   setIsLoading(true)
   try {
