@@ -1,4 +1,4 @@
-import { PaginationInterface } from '@/app'
+import { PaginationDefault, PaginationInterface } from "@/app/interface/common-interface"
 
 export interface ProductListInterface extends PaginationInterface {
   id?: number | undefined
@@ -41,7 +41,5 @@ export const ProductListValues: ProductListInterface = {
   accountMasterId: undefined,
   justIn: false,
   // PAGINATION FILTERING
-  limit: 100,
-  offset: 0,
-  totalItems: 0,
+  ...PaginationDefault,
 }

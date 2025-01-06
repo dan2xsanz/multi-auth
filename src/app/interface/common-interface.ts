@@ -1,7 +1,7 @@
 export interface PaginationInterface {
-  limit: number
-  offset: number
-  totalItems: number
+  limit?: number
+  offset?: number
+  totalItems?: number
 }
 
 export const PaginationDefault: PaginationInterface = {

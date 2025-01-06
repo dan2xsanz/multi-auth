@@ -15,11 +15,6 @@ import {
   discountCalculator,
   FilterIcon,
   HomeFilter,
-  PaginationInterface,
-  PaginationDefault,
-  CommonButon,
-  ButtonTypeEnum,
-  SizeEnum,
 } from '@/index'
 
 export const HomeTab = () => {
@@ -280,7 +275,7 @@ export const HomeTab = () => {
                     setSelectedFilter((prev) => {
                       return {
                         ...prev,
-                        limit: prev.limit * 2,
+                        limit: prev.limit && prev.limit * 2,
                       }
                     })
                   }}
