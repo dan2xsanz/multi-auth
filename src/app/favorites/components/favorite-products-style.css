@@ -4,6 +4,11 @@
   gap: 10px;
   padding: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.favorite-products-main-container:hover {
+  transform: scale(1.01); /* Scale up the element by 10% */
 }
 
 .images-container {
@@ -132,4 +137,77 @@
 
 .action-button-style:hover {
   color: rgba(0, 0, 0, 0.438);
+}
+
+@media (max-width: 1500px) {
+  .uploaded-image-name-detail {
+    font-size: 15px;
+  }
+  .profile-image-out-stock-container {
+    font-size: 15px;
+  }
+  .profile-image-on-stock-container {
+    font-size: 15px;
+  }
+  .image-category {
+    font-size: 15px;
+  }
+  .image-price {
+    font-size: 15px;
+  }
+  .image-price-discounted {
+    font-size: 15px;
+  }
+  .image-price-discount {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .favorite-additional-image-container {
+    height: 220px;
+  }
+  .favorite-image-list-container {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .favorite-displayed-image-container {
+    width: 200px !important;
+    height: 215px !important;
+  }
+  .favorite-products-main-container {
+    display: grid;
+    justify-content: center;
+  }
+  .images-container {
+    justify-content: center;
+  }
+
+  .favorite-additional-image-container {
+    margin-left: -30px;
+  }
+  .favorite-image-name-detail {
+    font-size: 12px;
+  }
+  .profile-image-out-stock-container {
+    font-size: 12px;
+  }
+  .profile-image-on-stock-container {
+    font-size: 12px;
+  }
+  .image-category {
+    font-size: 12px;
+  }
+  .image-price {
+    font-size: 12px;
+  }
+  .image-price-discounted {
+    font-size: 12px;
+  }
+  .image-price-discount {
+    font-size: 12px;
+  }
+  .image-description {
+    font-size: 10px;
+  }
 }

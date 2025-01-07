@@ -143,7 +143,6 @@
 
 
 @media (max-width: 1500px) {
- 
   .uploaded-image-name-detail {
     font-size: 15px;
   }
@@ -165,7 +164,6 @@
   .uploaded-image-price-discount {
     font-size: 15px;
   }
-  
 }
 
 @media (max-width: 800px) {
