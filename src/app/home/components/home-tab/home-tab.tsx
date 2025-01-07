@@ -72,32 +72,36 @@ export const HomeTab = () => {
 
   // REQUEST TRIGGER FOR PAGINATION REQUEST
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (
-            productList &&
-            productList.length != 0 &&
-            productList[0].totalItems
-          ) {
-            if (productList.length < productList[0].totalItems) {
-              setDisplayBtn(true)
-            } else {
-              setDisplayBtn(false)
+    if (productList.length === 0) {
+      setDisplayBtn(false)
+    } else {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            if (
+              productList &&
+              productList.length != 0 &&
+              productList[0].totalItems
+            ) {
+              if (productList.length < productList[0].totalItems) {
+                setDisplayBtn(true)
+              } else {
+                setDisplayBtn(false)
+              }
             }
           }
-        }
-      },
-      { root: null, threshold: 1.0 }, // Fully visible
-    )
+        },
+        { root: null, threshold: 1.0 }, // Fully visible
+      )
 
-    if (lastProductRef.current) {
-      observer.observe(lastProductRef.current)
-    }
-
-    return () => {
       if (lastProductRef.current) {
-        observer.unobserve(lastProductRef.current)
+        observer.observe(lastProductRef.current)
+      }
+
+      return () => {
+        if (lastProductRef.current) {
+          observer.unobserve(lastProductRef.current)
+        }
       }
     }
   }, [productList])

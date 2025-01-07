@@ -23,12 +23,17 @@ import {
   DEFAULT_PROFILE,
   UploadProductInterface,
   UploadProductValues,
+  ProductListFilterInterfaceValues,
+  ProductListInterfaceValues,
 } from '@/index'
 import { UploadedProducts } from './components/uploaded-products'
 import { UploadProduct } from './components/upload-products'
 import { EditProfile } from './components/edit-profile'
 
 export default function Profile() {
+  // SAMPLE PAGINATION IMPLEMENTATION
+  const lastProductRef = useRef(null)
+
   // LOADING SCREEN STORE
   const { setIsLoading, isLoading } = useStore()
 
@@ -57,12 +62,24 @@ export default function Profile() {
   // REFRESH LIST HANDLER
   const [refreshList, setRefreshList] = useState<boolean>(false)
 
+  // SELECTED FILTER
+  const [selectedFilter, setSelectedFilter] =
+    useState<ProductListFilterInterfaceValues>({
+      ...ProductListInterfaceValues,
+      accountId: accountStoreProperties.accountId,
+    })
+
+  // DISPLAY LOAD MORE BUTTON
+  const [displayBtn, setDisplayBtn] = useState<boolean>(false)
+
   // REFRESH LIST OF PRODUCTS
   const getAllProducts = useCallback(async () => {
     setIsLoading(true)
     try {
       const response: ResponseInterface = await GetProductByFilterRequest({
-        accountId: accountStoreProperties.accountId,
+        ...selectedFilter,
+        limit: selectedFilter.limit,
+        offset: selectedFilter.offset,
       })
       // RETURN SUCCESS MESSAGE
       if (response.isSuccess && response.resultData) {
@@ -78,7 +95,7 @@ export default function Profile() {
       setIsLoading(false)
       setRefreshList(false)
     }
-  }, [accountStoreProperties.accountId, setIsLoading])
+  }, [accountStoreProperties.accountId, setIsLoading, selectedFilter])
 
   // UDPATE SPEFIC PRODUCT HANDLER
   const updateSpecificProduct = async (
@@ -103,11 +120,6 @@ export default function Profile() {
       }
     }
   }
-
-  // REFRESH LIST EVENT HANDLER
-  useEffect(() => {
-    getAllProducts()
-  }, [getAllProducts, refreshList])
 
   const coverRef = useRef(null)
   const [editPosition, setEditPosition] = useState<boolean>(false)
@@ -135,6 +147,47 @@ export default function Profile() {
       setIsDragging(false)
     }
   }
+
+  // REFRESH LIST EVENT HANDLER
+  useEffect(() => {
+    getAllProducts()
+  }, [getAllProducts, refreshList, selectedFilter])
+
+  // REQUEST TRIGGER FOR PAGINATION REQUEST
+  useEffect(() => {
+    if (productList?.length === 0) {
+      setDisplayBtn(false)
+    } else {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            if (
+              productList &&
+              productList.length != 0 &&
+              productList[0].totalItems
+            ) {
+              if (productList.length < productList[0].totalItems) {
+                setDisplayBtn(true)
+              } else {
+                setDisplayBtn(false)
+              }
+            }
+          }
+        },
+        { root: null, threshold: 1.0 }, // Fully visible
+      )
+
+      if (lastProductRef.current) {
+        observer.observe(lastProductRef.current)
+      }
+
+      return () => {
+        if (lastProductRef.current) {
+          observer.unobserve(lastProductRef.current)
+        }
+      }
+    }
+  }, [productList])
 
   return (
     <div className='main-profile-container'>
@@ -232,27 +285,49 @@ export default function Profile() {
         )}
         {productList?.length && (
           <div style={{ width: '100%' }}>
-            {productList?.map((product, index) => (
-              <UploadedProducts
-                key={index}
-                setOpenDetailModal={setOpenDetailModal}
-                setProductDetails={setProductDetails}
-                productUploadDetailsResponse={product}
-                onClickEditProduct={(data: UploadProductInterface) => {
-                  setProductUploadDetails(data)
-                  setOpendAddNewProduct(true)
-                }}
-                onClickMarkAsSold={(data: UploadProductInterface) => {
-                  updateSpecificProduct(data)
-                }}
-                onClickDeleteProduct={(data: UploadProductInterface) => {
-                  updateSpecificProduct(data)
-                }}
-              />
-            ))}
+            {productList?.map((product, index) => {
+              const isLastProduct = index === productList.length - 1
+              return (
+                <div key={index} ref={isLastProduct ? lastProductRef : null}>
+                  <UploadedProducts
+                    key={index}
+                    setOpenDetailModal={setOpenDetailModal}
+                    setProductDetails={setProductDetails}
+                    productUploadDetailsResponse={product}
+                    onClickEditProduct={(data: UploadProductInterface) => {
+                      setProductUploadDetails(data)
+                      setOpendAddNewProduct(true)
+                    }}
+                    onClickMarkAsSold={(data: UploadProductInterface) => {
+                      updateSpecificProduct(data)
+                    }}
+                    onClickDeleteProduct={(data: UploadProductInterface) => {
+                      updateSpecificProduct(data)
+                    }}
+                  />
+                </div>
+              )
+            })}
           </div>
         )}
       </div>
+      {displayBtn && (
+        <div className='load-more-container-style'>
+          <div
+            className='load-more-label'
+            onClick={() => {
+              setSelectedFilter((prev) => {
+                return {
+                  ...prev,
+                  limit: prev.limit && prev.limit * 2,
+                }
+              })
+            }}
+          >
+            Load more items
+          </div>
+        </div>
+      )}
       <UploadProduct
         setRefreshList={setRefreshList}
         openAddNewProduct={openAddNewProduct}

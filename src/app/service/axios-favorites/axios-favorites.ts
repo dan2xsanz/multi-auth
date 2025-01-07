@@ -1,3 +1,4 @@
+import { ProductListFilterInterfaceValues } from '@/app'
 import { FavoritesInterface } from '@/app/home/components/home-tab'
 import { ResponseInterface } from '@/config/config'
 import { REQUEST_URL } from '@/properties'
@@ -57,12 +58,13 @@ export const ListOfFavorites = (
 }
 
 export const ListOfFavoritesByAccount = (
-  accountMasterId: number | undefined,
+  selectedFilter: ProductListFilterInterfaceValues,
 ): Promise<ResponseInterface> => {
   return new Promise((resolve, reject) => {
     axios
       .post<ResponseInterface>(
-        `${REQUEST_URL}/master-record/favorites/favorites-by-account/${accountMasterId}`,
+        `${REQUEST_URL}/master-record/favorites/favorites-by-account`,
+        selectedFilter,
       )
       .then(function (response: AxiosResponse<ResponseInterface>) {
         resolve(response.data)

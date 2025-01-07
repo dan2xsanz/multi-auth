@@ -1,4 +1,9 @@
-export interface UploadProductInterface {
+import {
+  PaginationDefault,
+  PaginationInterface,
+} from '@/app/interface/common-interface'
+
+export interface UploadProductInterface extends PaginationInterface {
   id?: number | undefined
   image1?: string | undefined
   image2?: string | undefined
@@ -36,4 +41,5 @@ export const UploadProductValues: UploadProductInterface = {
   productDescription: '',
   productLocation: '',
   accountMasterId: undefined,
+  ...PaginationDefault,
 }

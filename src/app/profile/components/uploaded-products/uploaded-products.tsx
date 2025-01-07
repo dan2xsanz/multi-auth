@@ -1,4 +1,3 @@
-import { ProductListInterface } from '../../../home-tab/data'
 import { useEffect, useState } from 'react'
 import { Image as AntdImage } from 'antd'
 import './uploaded-products-style.css'
@@ -10,6 +9,7 @@ import {
   discountCalculator,
   itemForType,
 } from '@/index'
+import { ProductListInterface } from '@/app/home/components/home-tab/data'
 
 interface UploadedProductsProps {
   id?: number | undefined
@@ -24,6 +24,7 @@ interface UploadedProductsProps {
 
 export const UploadedProducts = (props: UploadedProductsProps) => {
   const {
+    key,
     onClickMarkAsSold,
     setProductDetails,
     setOpenDetailModal,
@@ -139,7 +140,7 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
   }, [productUploadDetails.image1])
 
   return (
-    <div style={{ display: 'grid' }}>
+    <div key={key} style={{ display: 'grid', position: 'relative' }}>
       <div className='uploaded-products-main-container'>
         <div className='images-container'>
           <div className='uploaded-additional-image-container'>

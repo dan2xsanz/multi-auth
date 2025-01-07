@@ -1,6 +1,6 @@
 .main-profile-container {
-   width: 100vw;
-   height: 100vh;
+  width: 100vw;
+  height: 100vh;
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 5px;
@@ -102,6 +102,30 @@
   height: 400px;
   background-color: green;
   width: 100%;
+}
+
+.load-more-container-style {
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for scaling and glow */
+}
+
+.load-more-container-style:hover {
+  transform: scale(1.08); /* Scale up the element by 10% */
+}
+
+.load-more-label {
+  color: rgba(0, 0, 0, 0.432);
+  background-color: rgba(172, 172, 172, 0.397);
+  padding: 2px;
+  border-radius: 2px;
 }
 
 @media (max-width: 1000px) {
