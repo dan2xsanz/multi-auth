@@ -36,7 +36,8 @@ export default function LoginPage() {
   } = accountDetailStore()
 
   const { setIsLoading } = useStore()
-  const { resetLoginState, setIsLogIn, setRefreshToken, setToken } = logInStore()
+  const { resetLoginState, setIsLogIn, setRefreshToken, setToken } =
+    logInStore()
 
   const { resetAccountDetailsState } = accountDetailStore()
 

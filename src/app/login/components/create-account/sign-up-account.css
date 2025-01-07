@@ -1,43 +1,60 @@
 .sign-up-main-container {
-    gap: 5px;
-    position: absolute;
-    padding: 25px;
-    top: 55%;
-    left: 50%;
-    width: 28%;
-    display: grid;
-    border-radius: 2%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 5px;
+  position: absolute;
+  padding: 25px;
+  top: 55%;
+  left: 50%;
+  width: 28%;
+  display: grid;
+  border-radius: 2%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-.sign-up-title-container{
-    border-bottom-width: 3px;
-    border-color: black;
-    margin-bottom: 5px;
+.sign-up-title-container {
+  border-bottom-width: 3px;
+  border-color: black;
+  margin-bottom: 5px;
 }
 
-.back-to-login-container{
-    display:flex;
-    width: 100%;
-    justify-content: space-between;
+.back-to-login-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.i-am-seller-container{
-    width: 100%;
-    height: 25px;
-    margin-top: 5px;
-    padding-top: 8px;
-    border-top-width: 1px;
-    border-top-color: black;
+.i-am-seller-container {
+  width: 100%;
+  height: 25px;
+  margin-top: 5px;
+  padding-top: 8px;
+  border-top-width: 1px;
+  border-top-color: black;
 }
 
-.login-icon-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
-    height: 20px;
-    gap: 3%;
+.login-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 20px;
+  gap: 3%;
+}
+
+@media (max-width: 1500px) {
+  .sign-up-main-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sign-up-main-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .sign-up-main-container {
+    width: 80%;
+  }
 }
