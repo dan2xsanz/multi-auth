@@ -3,13 +3,14 @@ import { Spin } from 'antd'
 import { Footer } from '../common'
 import { HeaderMenu } from '../common/header-menu'
 import './profile.css'
-import { useStore } from '../store'
+import { logInStore, useStore } from '../store'
 export default function ProfileLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   const { isLoading } = useStore()
+  const { token } = logInStore()
 
   return (
     <div className='main-background'>
@@ -20,7 +21,7 @@ export default function ProfileLayout({
       )}
       <div className={`main-container`}>
         <HeaderMenu />
-        {children}
+        {token && children}
         <Footer />
       </div>
     </div>

@@ -2,7 +2,7 @@
 import { Spin } from 'antd'
 import { Footer } from '../common'
 import { HeaderMenu } from '../common/header-menu'
-import { useStore } from '../store'
+import { logInStore, useStore } from '../store'
 import './favorites.css'
 export default function FavoritesLayout({
   children,
@@ -10,6 +10,7 @@ export default function FavoritesLayout({
   children: React.ReactNode
 }) {
   const { isLoading } = useStore()
+  const { token } = logInStore()
 
   return (
     <div className='main-background'>
@@ -20,7 +21,8 @@ export default function FavoritesLayout({
           </div>
         )}
         <HeaderMenu />
-        {children}
+
+        {token && children}
         <Footer />
       </div>
     </div>
