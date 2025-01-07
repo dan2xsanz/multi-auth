@@ -1,11 +1,11 @@
 .button-primary-backgroud{
-  background-color: black;
-  color: #FBF9FA;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-color: black !important;
+  color: #FBF9FA !important;
+  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 .button-secondary-backgroud{
-  background-color: black;
-  color: #FBF9FA;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-color: black !important;
+  color: #FBF9FA !important;
+  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
 }
