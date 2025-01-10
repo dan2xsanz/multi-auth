@@ -4,13 +4,31 @@ import { Footer } from '../common'
 import { HeaderMenu } from '../common/header-menu'
 import './profile.css'
 import { logInStore, useStore } from '../store'
+import { useRouter } from 'next/navigation'
+import { Fragment, useEffect } from 'react'
 export default function ProfileLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   const { isLoading } = useStore()
+
+  // AUTH TOKEN DETAILS
   const { token } = logInStore()
+
+  // ROUTER
+  const router = useRouter()
+
+  // SAVE STORED TOKEN
+  const storedState = localStorage.getItem('logInStore')
+  const tokenStored = storedState && JSON.parse(storedState)
+
+  // VALIDATE TOKEN VALIDATION
+  useEffect(() => {
+    if (!token || !tokenStored) {
+      router.push('/login')
+    }
+  }, [token])
 
   return (
     <div className='main-background'>
@@ -20,9 +38,13 @@ export default function ProfileLayout({
         </div>
       )}
       <div className={`main-container`}>
-        <HeaderMenu />
-        {token && children}
-        <Footer />
+        {token && (
+          <Fragment>
+            <HeaderMenu />
+            {children}
+            <Footer />
+          </Fragment>
+        )}
       </div>
     </div>
   )

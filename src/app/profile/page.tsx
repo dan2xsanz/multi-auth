@@ -29,8 +29,12 @@ import {
 import { UploadedProducts } from './components/uploaded-products'
 import { UploadProduct } from './components/upload-products'
 import { EditProfile } from './components/edit-profile'
+import { useRouter } from 'next/navigation'
 
 export default function Profile() {
+  // ROUTER
+  const router = useRouter()
+
   // SAMPLE PAGINATION IMPLEMENTATION
   const lastProductRef = useRef(null)
 
@@ -212,11 +216,17 @@ export default function Profile() {
         <div className='main-profile-button-container'>
           {!editPosition && (
             <Fragment>
-              <CommonButon
+              {/* <CommonButon
                 size={SizeEnum.small}
                 buttonTxt={'Reposition'}
                 type={ButtonTypeEnum.submit}
                 onClick={() => setEditPosition(true)}
+              /> */}
+              <CommonButon
+                size={SizeEnum.small}
+                buttonTxt={'Logout'}
+                type={ButtonTypeEnum.submit}
+                onClick={() => router.push('/login')}
               />
               <CommonButon
                 size={SizeEnum.small}

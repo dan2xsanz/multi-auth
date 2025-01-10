@@ -141,8 +141,11 @@ export const UploadProduct = (props: UploadProductProps) => {
         'image3',
         'image4',
         'isSold',
-        'isDeleted',
         'itemFor',
+        'limit',
+        'offset',
+        'isDeleted',
+        'totalItems',
         'productCategory',
         'productCondition',
         'accountMasterId',
@@ -156,6 +159,7 @@ export const UploadProduct = (props: UploadProductProps) => {
     if (productUploadDetails.productCondition === '') {
       errorFields.push('productCondition')
     }
+    console.log(errorFields)
     setErrorFields(errorFields)
     if (errorFields.length === 0) {
       if (productImages[0] !== '') {

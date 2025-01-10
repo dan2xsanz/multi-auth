@@ -35,6 +35,14 @@
     gap: 15px;
    
   }
+
+  .header-login-icon-container{
+    display: flex;
+    margin-top: 5px;
+    gap: 15px;
+   
+  }
+  
   
   .header-icon{
     color: black;

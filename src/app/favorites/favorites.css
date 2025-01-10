@@ -48,6 +48,15 @@
    
   }
   
+  
+  .header-login-icon-container{
+    display: flex;
+    margin-top: 5px;
+    gap: 15px;
+   
+  }
+  
+
   .header-icon{
     color: black;
     font-family:Verdana, Geneva, Tahoma, sans-serif;

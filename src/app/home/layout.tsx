@@ -2,7 +2,7 @@
 import { Spin } from 'antd'
 import { Footer } from '../common'
 import { HeaderMenu } from '../common/header-menu'
-import { logInStore, useStore } from '../store'
+import { useStore } from '../store'
 import './home.css'
 export default function HomeLayout({
   children,
@@ -10,7 +10,6 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   const { isLoading } = useStore()
-  const { token } = logInStore()
 
   return (
     <div className='main-background'>
@@ -21,7 +20,7 @@ export default function HomeLayout({
       )}
       <div className={`main-container`}>
         <HeaderMenu />
-        {token && children}
+        {children}
         <Footer />
       </div>
     </div>

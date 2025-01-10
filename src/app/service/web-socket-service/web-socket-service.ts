@@ -11,7 +11,7 @@ class WebSocketService {
 
   constructor() {
     this.client = new Client({
-      brokerURL: 'ws://localhost:8080/ws',
+      brokerURL: 'ws://52.62.0.134:8080/ws',
       webSocketFactory: () => new SockJS(`${REQUEST_URL}/ws`),
       reconnectDelay: 5000,
       debug: (str) => {

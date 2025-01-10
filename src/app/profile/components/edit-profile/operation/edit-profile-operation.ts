@@ -1,6 +1,6 @@
 import { openErrorNotification, openSuccessNotification } from '@/app'
 import { CreateAccountInterface } from '@/app/login/components'
-import { UpdateAccountRequest } from '@/app/service'
+import { UpdateAccountRequest } from '@/app/service/axios-account'
 import { ResponseInterface } from '@/config/config'
 
 export const updateAccountRequestOperation = async (
