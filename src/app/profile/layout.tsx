@@ -19,16 +19,18 @@ export default function ProfileLayout({
   // ROUTER
   const router = useRouter()
 
-  // SAVE STORED TOKEN
-  const storedState = localStorage.getItem('logInStore')
-  const tokenStored = storedState && JSON.parse(storedState)
-
-  // VALIDATE TOKEN VALIDATION
   useEffect(() => {
-    if (!token || !tokenStored) {
-      router.push('/login')
+    if (typeof window !== 'undefined') {
+      // Access localStorage safely in the browser
+      const storedState = localStorage.getItem('logInStore')
+      const parsedState = storedState && JSON.parse(storedState)
+
+      // Redirect if no token or invalid token
+      if (!parsedState?.token) {
+        router.push('/login')
+      }
     }
-  }, [token])
+  }, [router])
 
   return (
     <div className='main-background'>
