@@ -4,7 +4,7 @@ import { ProductListInterface } from '@/app/home/components/home-tab/data'
 import { addCommentsOperation, getAllCommentsOperation } from './operation'
 import { CommentSectionInterface } from './comment-section-interface'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
-import { accountDetailStore, useStore } from '@/app/store'
+import { accountDetailStore, logInStore, useStore } from '@/app/store'
 import { UserOutlined } from '@ant-design/icons/lib/icons'
 import { SentCommentIcon } from '../icons'
 import { Avatar, Card } from 'antd'
@@ -26,6 +26,9 @@ export const CommentSection = (props: CommentSectionProps) => {
 
   // LOADING SCREEN STORE
   const { setIsLoading } = useStore()
+
+  // AUTH TOKEN DETAILS
+  const { token } = logInStore()
 
   // AUTO FOCUS FIELD
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -104,6 +107,7 @@ export const CommentSection = (props: CommentSectionProps) => {
         <textarea
           ref={textareaRef}
           value={inputedValue}
+          disabled={!token}
           placeholder='Write a comment'
           className='comment-input-field'
           onChange={(data) => {
@@ -112,7 +116,7 @@ export const CommentSection = (props: CommentSectionProps) => {
         />
         <SentCommentIcon
           onClick={() => {
-            if (inputedValue) addToCommentSection(inputedValue)
+            if (inputedValue && token) addToCommentSection(inputedValue)
           }}
         />
       </div>

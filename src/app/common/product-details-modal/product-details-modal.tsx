@@ -3,7 +3,7 @@ import { NotificationInterface } from '@/app/service/web-socket-service/web-sock
 import webSocketServiceInstance from '@/app/service/web-socket-service/web-socket-service'
 import { ProductListInterface } from '../../home/components/home-tab/data'
 import React, { Fragment, useEffect, useState } from 'react'
-import { accountDetailStore, useStore } from '@/app/store'
+import { accountDetailStore, logInStore, useStore } from '@/app/store'
 import { CommonModal } from '@/app/common/modal/modal'
 import { Image as AntdImage, Carousel } from 'antd'
 import './product-details-modal.css'
@@ -40,6 +40,7 @@ import {
   getAllCommentsOperation,
   getProductMasterId,
 } from './operations'
+import { useRouter } from 'next/navigation'
 
 interface ProductDetailsModalProps {
   productMasterId: number | undefined
@@ -80,6 +81,12 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
   // LOADING SCREEN STORE
   const { setIsLoading } = useStore()
 
+  // AUTH TOKEN DETAILS
+  const { token } = logInStore()
+
+  // ROUTER
+  const router = useRouter()
+
   // ACCOUNT DETAILS
   const { accountId, firstName, lastName } = accountDetailStore()
 
@@ -94,6 +101,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
 
   // ADD PRODUCT BTO MY FAVORITES
   const addToMyFavorites = () => {
+    if (!token) return router.push('/login')
     setFavoriteState({
       ...favoriteState,
       isFavorite: !favoriteState.isFavorite,
@@ -103,6 +111,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
 
   // ADD PRODUCT AS HEARTED
   const addToMyHearted = () => {
+    if (!token) return router.push('/login')
     let notification: NotificationInterface = {
       senderId: accountId,
       subject: productDetails?.productName,
@@ -172,7 +181,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
   // GET PRODUCT BY PRODUCT MASTER ID
   useEffect(() => {
     getProductMasterId(setIsLoading, productMasterId, setProductDetails)
-  }, [productMasterId])
+  }, [productMasterId, setIsLoading])
 
   useEffect(() => {
     openCommentSection(false)
@@ -186,7 +195,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
       height='480px'
       width='1000px'
       isShowFooterButtons={false}
-      isOpen={openDetailModal}
+      isOpen={productDetails && openDetailModal}
       onCancel={() => setOpenDetailModal(!openDetailModal)}
       title={`${productDetails?.productName} Details`}
     >
