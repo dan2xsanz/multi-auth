@@ -78,7 +78,7 @@
   .my-custom-modal .ant-modal-content {
     border-radius: 0%;
     position: fixed;
-    top: 5%;
+    top: 25%;
     right: 5%;
     left: 5%;
     margin: 0;
@@ -89,7 +89,7 @@
   .my-custom-modal .ant-modal-content {
     border-radius: 0%;
     position: fixed;
-    top: 8%;
+    top: 10%;
     right: 5%;
     left: 5%;
     margin: 0;

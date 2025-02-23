@@ -11,14 +11,14 @@ import {
   itemForType,
 } from '@/index'
 
-import './favorite-products-style.css'
+import './product-detail-list-style.css'
 
-interface FavoritesProductsInterface {
+interface ProductDetailListInterface {
   setProductDetails: (data: ProductListInterface) => void
   productUploadDetailsResponse: UploadProductInterface
 }
 
-export const FavoritesProducts = (props: FavoritesProductsInterface) => {
+export const ProductDetailList = (props: ProductDetailListInterface) => {
   // FAVORITE PRODUCT PROPS
   const { productUploadDetailsResponse, setProductDetails } = props
 

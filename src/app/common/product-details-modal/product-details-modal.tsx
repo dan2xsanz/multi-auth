@@ -2,7 +2,7 @@
 import { NotificationInterface } from '@/app/service/web-socket-service/web-socket-service-interface'
 import webSocketServiceInstance from '@/app/service/web-socket-service/web-socket-service'
 import { ProductListInterface } from '../../home/components/home-tab/data'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { accountDetailStore, logInStore, useStore } from '@/app/store'
 import { CommonModal } from '@/app/common/modal/modal'
 import { Image as AntdImage, Carousel } from 'antd'
@@ -10,6 +10,7 @@ import './product-details-modal.css'
 import {
   getProductPriceAndCurrency,
   getProductNameAndCondition,
+  HighlightedCommentsIcon,
   HighlightedFavoriteIcon,
   HighlightedHeartIcon,
   getProductCategory,
@@ -22,7 +23,10 @@ import {
   FavoriteIcon,
   CommentsIcon,
   HeartIcon,
-  HighlightedCommentsIcon,
+  CommonButon,
+  SizeEnum,
+  ButtonTypeEnum,
+  ButtonColorTypeEnum,
 } from '@/index'
 import {
   HeartReactStateDefaultValue,
@@ -170,7 +174,6 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
     }
   }, [
     accountId,
-    inputedValue,
     setIsLoading,
     openDetailModal,
     productDetails?.id,
@@ -192,7 +195,7 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
 
   return (
     <CommonModal
-      height='480px'
+      height='520px'
       width='1000px'
       isShowFooterButtons={false}
       isOpen={productDetails && openDetailModal}
@@ -266,34 +269,48 @@ export const ProductDetailsModal = (props: ProductDetailsModalProps) => {
               />
             )}
           </div>
-          <div className='product-details-reaction-container'>
-            <div className='product-number-reaction-container'>
-              {favoriteState.isFavorite ? (
-                <HighlightedFavoriteIcon onClick={removeToMyFavorites} />
-              ) : (
-                <FavoriteIcon onClick={addToMyFavorites} />
-              )}
+          <div>
+            <div className='product-details-reaction-container'>
+              <div className='product-number-reaction-container'>
+                {favoriteState.isFavorite ? (
+                  <HighlightedFavoriteIcon onClick={removeToMyFavorites} />
+                ) : (
+                  <FavoriteIcon onClick={addToMyFavorites} />
+                )}
+              </div>
+              <div className='product-number-reaction-container'>
+                {heartReactState.isHearted ? (
+                  <HighlightedHeartIcon onClick={removeToMyHeartedProduct} />
+                ) : (
+                  <HeartIcon onClick={addToMyHearted} />
+                )}
+                <label>{heartReactState.totalHeartReact}</label>
+              </div>
+              <div className='product-number-reaction-container'>
+                {commentSection ? (
+                  <HighlightedCommentsIcon
+                    onClick={() => openCommentSection(!commentSection)}
+                  />
+                ) : (
+                  <CommentsIcon
+                    onClick={() => openCommentSection(!commentSection)}
+                  />
+                )}
+                <label>{totalCommentsState}</label>
+              </div>
             </div>
-            <div className='product-number-reaction-container'>
-              {heartReactState.isHearted ? (
-                <HighlightedHeartIcon onClick={removeToMyHeartedProduct} />
-              ) : (
-                <HeartIcon onClick={addToMyHearted} />
-              )}
-              <label>{heartReactState.totalHeartReact}</label>
-            </div>
-            <div className='product-number-reaction-container'>
-              {commentSection ? (
-                <HighlightedCommentsIcon
-                  onClick={() => openCommentSection(!commentSection)}
+            {accountId !== productDetails?.accountMasterId && (
+              <div className='product-number-reaction-container'>
+                <CommonButon
+                  buttonTxt={'Add to cart'}
+                  onClick={() => {}}
+                  style={{ width: '100%' }}
+                  size={SizeEnum.small}
+                  type={ButtonTypeEnum.submit}
+                  buttonColorType={ButtonColorTypeEnum.primary}
                 />
-              ) : (
-                <CommentsIcon
-                  onClick={() => openCommentSection(!commentSection)}
-                />
-              )}
-              <label>{totalCommentsState}</label>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -45,11 +45,14 @@ export const HeaderMenu = () => {
               >
                 Notification
               </div>
-              <div
+              {/* <div
                 className='header-icon'
                 onClick={() => setOpenMessages(true)}
               >
                 Messages
+              </div> */}
+              <div className='header-icon' onClick={() => router.push('/cart')}>
+                Cart
               </div>
               <div
                 className='header-icon'
@@ -64,17 +67,14 @@ export const HeaderMenu = () => {
             </div>
           )}
         </div>
-      
-          {!token && (
-            <div className='header-login-icon-container'>
-              <div
-                className='header-icon'
-                onClick={() => router.push('/login')}
-              >
-                Login/Sign Up
-              </div>
+
+        {!token && (
+          <div className='header-login-icon-container'>
+            <div className='header-icon' onClick={() => router.push('/login')}>
+              Login/Sign Up
             </div>
-          )}
+          </div>
+        )}
       </div>
       {/* NOTIFICATION DRAWER */}
       <CommonDrawer

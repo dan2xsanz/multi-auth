@@ -13,7 +13,6 @@ import { ProductListInterface } from '@/app/home/components/home-tab/data'
 
 interface UploadedProductsProps {
   id?: number | undefined
-  key?: number | undefined
   setOpenDetailModal: (data: boolean) => void
   productUploadDetailsResponse: UploadProductInterface
   setProductDetails: (data: ProductListInterface) => void
@@ -24,7 +23,6 @@ interface UploadedProductsProps {
 
 export const UploadedProducts = (props: UploadedProductsProps) => {
   const {
-    key,
     onClickMarkAsSold,
     setProductDetails,
     setOpenDetailModal,
@@ -140,7 +138,7 @@ export const UploadedProducts = (props: UploadedProductsProps) => {
   }, [productUploadDetails.image1])
 
   return (
-    <div key={key} style={{ display: 'grid', position: 'relative' }}>
+    <div style={{ display: 'grid', position: 'relative' }}>
       <div className='uploaded-products-main-container'>
         <div className='images-container'>
           <div className='uploaded-additional-image-container'>

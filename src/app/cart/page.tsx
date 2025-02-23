@@ -1,17 +1,17 @@
 'use client'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
+import { ProductListInterface } from '../home/components/home-tab/data'
+import { getAllFavoriteProducts } from '../favorites/operation'
+import { accountDetailStore, useStore } from '../store'
 import {
-  ProductDetailList,
-  ProductDetailsModal,
   ProductListFilterInterfaceValues,
   ProductListInterfaceValues,
   UploadProductInterface,
-} from '@/index'
-import React, { Fragment, useEffect, useRef, useState } from 'react'
-import { accountDetailStore, useStore } from '@/app/store'
-import { ProductListInterface } from '../home/components/home-tab/data'
-import { getAllFavoriteProducts } from './operation'
+  ProductDetailsModal,
+} from '../home'
+import { ProductDetailList } from '../common'
 
-export default function Favorites() {
+export default function CartPage() {
   // SAMPLE PAGINATION IMPLEMENTATION
   const lastProductRef = useRef(null)
 
